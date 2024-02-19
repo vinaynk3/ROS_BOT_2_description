@@ -1,0 +1,138 @@
+<?xml version="1.0" ?>
+<robot name="ROS_BOT_1" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find ROS_BOT_2_description)/models/urdf/materials.xacro" />
+<xacro:include filename="$(find ROS_BOT_2_description)/models/urdf/ROS_BOT_1.trans" />
+<xacro:include filename="$(find ROS_BOT_2_description)/models/urdf/ROS_BOT_1.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.0032884426660520173 0.0 0.0315267801089402" rpy="0 0 0"/>
+    <mass value="0.6616847081595042"/>
+    <inertia ixx="0.00058" iyy="0.002021" izz="0.002466" ixy="-0.0" iyz="0.0" ixz="-3e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ROS_BOT_2_description)/models/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ROS_BOT_2_description)/models/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel_1">
+  <inertial>
+    <origin xyz="-1.1921412329529701e-09 -0.012500000000000025 -1.9623191960249642e-14" rpy="0 0 0"/>
+    <mass value="0.061629212134093336"/>
+    <inertia ixx="1.8e-05" iyy="2.9e-05" izz="1.8e-05" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.08 0.06 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ROS_BOT_2_description)/models/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.08 0.06 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ROS_BOT_2_description)/models/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel_1">
+  <inertial>
+    <origin xyz="-1.1921451603669198e-09 0.012500000000000025 1.734723475976807e-17" rpy="0 0 0"/>
+    <mass value="0.06162921213409332"/>
+    <inertia ixx="1.8e-05" iyy="2.9e-05" izz="1.8e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.08 -0.06 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ROS_BOT_2_description)/models/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.08 -0.06 -0.03" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ROS_BOT_2_description)/models/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="castor_1">
+  <inertial>
+    <origin xyz="-0.030000000000000013 -1.2565154297139817e-17 -0.005625000000000007" rpy="0 0 0"/>
+    <mass value="0.060012273665199026"/>
+    <inertia ixx="4e-06" iyy="4e-06" izz="5e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1 -0.0 -0.015" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ROS_BOT_2_description)/models/meshes/castor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1 -0.0 -0.015" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ROS_BOT_2_description)/models/meshes/castor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_1">
+  <inertial>
+    <origin xyz="-6.0000056025074064e-18 0.0 0.0024929317211731875" rpy="0 0 0"/>
+    <mass value="0.01634246766268295"/>
+    <inertia ixx="3e-06" iyy="3e-06" izz="6e-06" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.06" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ROS_BOT_2_description)/models/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.06" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find ROS_BOT_2_description)/models/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="right_wheel_joint" type="continuous">
+  <origin xyz="-0.08 -0.06 0.03" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="left_wheel_joint" type="continuous">
+  <origin xyz="-0.08 0.06 0.03" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="castor_joint" type="fixed">
+  <origin xyz="0.1 0.0 0.015" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="castor_1"/>
+</joint>
+
+<joint name="lidar_joint" type="fixed">
+  <origin xyz="0.0 0.0 0.07" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar_1"/>
+</joint>
+
+</robot>
